@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Roca Two";
+  src: url("/fonts/roca-two-bold.ttf") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: "Roca Two", serif;
+}
+.font-spartan {
+  font-family: 'League Spartan', sans-serif !important;
+}
+
+
+/* .crafter {
+  width: 700px;
+ height: 300px;
+ margin-top: 50px;
+}
+
+.brownBox {
+  background-color: #c74710;
+  width: 700px;
+ height: 120px;
+ border-radius: 50px;
+ display: flex;
+ justify-content: center;
+}
+
+.whiteBox {
+  position: relative;
+  bottom: 14px;
+  background-color: white;
+  width: 600px;
+  height: 100px;
+} */
+
+/* #craftingTable {
+  background: linear-gradient(135deg, #ffbf00, #f15000);
+  width: 800px;
+  height: 450px;
+  border-radius: 2vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  grid-template-rows: repeat(3, 1fr);    
+  gap: 20px;                             
+  padding: 30px;
+  box-sizing: border-box;
+} */
+
+/* .boxes {
+  background-color: white;
+  border-radius: 2vh;
+  width: 100%;  
+  height: 100%; 
+} */
