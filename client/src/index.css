@@ -13,6 +13,7 @@
 
 body {
   font-family: "Roca Two", serif;
+  background: radial-gradient(circle at 50% 40%, #fa5f07, #ffc187, #faf0c4, #ffdc42);
 }
 .font-spartan {
   font-family: 'League Spartan', sans-serif !important;

@@ -63,7 +63,7 @@ export default function CraftTableHeader({ craft }) {
       <div
         className="block pt-12 items-center bg-[linear-gradient(90deg,#ff880c,#ef290e)] w-full"
         style={{
-          height: "calc(15vw + 110px)",
+          height: "calc(15vw + 120px)",
           minHeight: "220px",
           maxHeight: "650px",
         }}
@@ -81,8 +81,9 @@ export default function CraftTableHeader({ craft }) {
           CRAFTERIA
         </div>
 
-        <div className="flex text-white text-4xl justify-center pb-6">
+        <div className="flex flex-col text-white text-4xl items-center justify-center pb-6">
           <p>What would you like to craft today?</p>
+                  <hr className="mt-4 w-[45vw] border-t-2 border-orange-300 opacity-90" />
         </div>
 
         <div className="w-full h-9 bg-[linear-gradient(90deg,#ff7a00,#ffbc63,#ff7a00)]"></div>

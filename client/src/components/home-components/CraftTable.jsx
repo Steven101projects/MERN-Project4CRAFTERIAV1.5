@@ -88,9 +88,9 @@ export default function CraftTable({ setCraft }) {
     );
   }
 return (
-  <div className="w-full min-h-[55vh] flex flex-col items-center">
+  <div className="w-full min-h-[45vh] flex flex-col items-center">
     
-    <div className="flex flex-col items-center justify-center mt-32">
+    <div className="flex flex-col items-center justify-center mt-16">
 
       <button
         onClick={handleClick}
