@@ -25,7 +25,7 @@ export default function CrafteriaHeader() {
     select-none
   "
 >
-  CRAFTERIA ~
+  CRAFTERIA
 </a>
 </div>
 <div className="flex w-1/2 justify-end pr-28">

@@ -6,6 +6,7 @@ import MaterialsContainer from "../components/craftbook-components/Materials"
 export default function CraftBook() {
         
   const [activeTab, setActiveTab] = useState("projects")
+  const [sortValue, setSortValue] = useState("name")
 
   return (
     <>
@@ -35,14 +36,18 @@ export default function CraftBook() {
 
         </div>
 
-<div className="p-2 rounded w-full h-[90vh] text-white bg-[linear-gradient(135deg,#d2541c,#8c2a0e)]">
+        <div className="p-2 rounded w-full h-[90vh] text-white bg-[linear-gradient(to_right,#d2541c,#8c2a0e)] ">
 
           <div className="m-5 flex flex-row items-center gap-4">
-            <SearchBarComponent />
+            <SearchBarComponent
+              sortValue={sortValue}
+              onSortChange={setSortValue}
+            />
           </div>
+
           <div className="mt-4">
-            {activeTab === "projects" && <ProjectsContainer />}
-            {activeTab === "materials" && <MaterialsContainer />}
+            {activeTab === "projects" && <ProjectsContainer sortBy={sortValue} />}
+            {activeTab === "materials" && <MaterialsContainer sortBy={sortValue} />}
           </div>
 
         </div>
