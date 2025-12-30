@@ -1,12 +1,25 @@
 import express from "express";
-import { getProjects, getProject } from "../controllers/project.controller.js";
+import {
+  getProjects,
+  getProject,
+  createProject,
+  updateProject,
+  deleteProject
+} from "../controllers/project.controller.js";
 
 const router = express.Router();
 
-// get all projects
+// read
 router.get("/", getProjects);
-
-// get one project
 router.get("/:id", getProject);
+
+// create
+router.post("/", createProject);
+
+// update
+router.put("/:id", updateProject);
+
+// delete
+router.delete("/:id", deleteProject);
 
 export default router;

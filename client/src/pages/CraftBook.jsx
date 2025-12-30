@@ -1,16 +1,25 @@
-import React, { useState } from "react"
-import SearchBarComponent from "../components/craftbook-components/SearchBar"
-import ProjectsContainer from "../components/craftbook-components/Projects"
-import MaterialsContainer from "../components/craftbook-components/Materials"
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../context/AuthContext.jsx";
+
+import CraftSideBar from "../components/CraftSideBar";
+import SearchBarComponent from "../components/craftbook-components/SearchBar";
+import ProjectsContainer from "../components/craftbook-components/Projects";
+import MaterialsContainer from "../components/craftbook-components/Materials";
 
 export default function CraftBook() {
-        
-  const [activeTab, setActiveTab] = useState("projects")
-  const [sortValue, setSortValue] = useState("name")
+  const { loggedIn } = useContext(AuthContext);
+
+  const [activeTab, setActiveTab] = useState("projects");
+  const [sortValue, setSortValue] = useState("name");
 
   return (
-    <>
-      <div className="m-5 text-white">
+    <div className="flex">
+
+      {/* Sidebar only when logged in */}
+      {loggedIn && <CraftSideBar />}
+
+      {/* Main CraftBook content */}
+      <div className="flex-grow m-5 text-white">
 
         <div className="flex ml-4 text-xl">
 
@@ -36,7 +45,7 @@ export default function CraftBook() {
 
         </div>
 
-        <div className="p-2 rounded w-full h-[90vh] text-white bg-[linear-gradient(90deg,#ff880c,#ef290e)] ">
+        <div className="p-2 rounded w-full h-[90vh] text-white bg-[linear-gradient(90deg,#ff880c,#ef290e)]">
 
           <div className="m-5 flex flex-row items-center gap-4">
             <SearchBarComponent
@@ -46,13 +55,17 @@ export default function CraftBook() {
           </div>
 
           <div className="mt-4">
-            {activeTab === "projects" && <ProjectsContainer sortBy={sortValue} />}
-            {activeTab === "materials" && <MaterialsContainer sortBy={sortValue} />}
+            {activeTab === "projects" && (
+              <ProjectsContainer sortBy={sortValue} />
+            )}
+            {activeTab === "materials" && (
+              <MaterialsContainer sortBy={sortValue} />
+            )}
           </div>
 
         </div>
 
       </div>
-    </>
-  )
+    </div>
+  );
 }

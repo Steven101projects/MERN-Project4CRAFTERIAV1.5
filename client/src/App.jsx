@@ -11,6 +11,7 @@ import AboutUs from './pages/About'
 import Craftbook from './pages/CraftBook'
 import LogIn from './pages/LogIn'
 import Register from './pages/Register'
+import Settings from "./pages/Settings"
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         <Route path='/craftbook' element={<Craftbook />} />
         <Route path='/login' element={<LogIn />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/settings' element={<Settings />} />
       </Routes>
       
       <CrafteriaFooter />
