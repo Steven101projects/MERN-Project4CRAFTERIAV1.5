@@ -38,7 +38,7 @@ export default function ProjectsContainer({ sortBy }) {
         {sortedProjects.map((project, index) => (
           <div
             key={index}
-            className="bg-orange-600 p-4 rounded-xl h-64 shadow"
+            className="bg-[linear-gradient(to_right,#d2541c,#8c2a0e)] p-4 rounded-xl h-64 shadow"
           >
 
             {/* Placeholder image */}

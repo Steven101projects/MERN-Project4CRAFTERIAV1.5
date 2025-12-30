@@ -3,8 +3,10 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 
-import materialRoutes from "./routes/material.route.js";
-import projectRoutes from "./routes/project.route.js";
+import materialRoutes from "./routes/material.routes.js";
+import projectRoutes from "./routes/project.routes.js";
+import authRoutes from "./routes/auth.routes.js";
+import userRoutes from "./routes/user.routes.js";
 
 dotenv.config();
 connectDB();
@@ -19,6 +21,8 @@ app.get("/", (req, res) => {
 });
 
 // api routes
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 app.use("/api/materials", materialRoutes);
 app.use("/api/projects", projectRoutes);
 

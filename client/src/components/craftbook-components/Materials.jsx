@@ -36,7 +36,7 @@ export default function MaterialsContainer({ sortBy }) {
         {sortedMaterials.map((material, index) => (
           <div
             key={index}
-            className="bg-orange-600 p-4 rounded-xl h-64 shadow"
+            className="bg-[linear-gradient(to_right,#d2541c,#8c2a0e)] p-4 rounded-xl h-64 shadow"
           >
             <div className="bg-white h-20 w-full rounded mb-2"></div>
 

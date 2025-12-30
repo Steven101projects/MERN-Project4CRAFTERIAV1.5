@@ -36,7 +36,7 @@ export default function CraftBook() {
 
         </div>
 
-        <div className="p-2 rounded w-full h-[90vh] text-white bg-[linear-gradient(to_right,#d2541c,#8c2a0e)] ">
+        <div className="p-2 rounded w-full h-[90vh] text-white bg-[linear-gradient(90deg,#ff880c,#ef290e)] ">
 
           <div className="m-5 flex flex-row items-center gap-4">
             <SearchBarComponent

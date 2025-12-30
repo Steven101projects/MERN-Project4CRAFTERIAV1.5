@@ -4,7 +4,7 @@ export default function SearchBarComponent({ sortValue, onSortChange }) {
       
       {/* Search bar */}
       <div className="w-full flex justify-center">
-        <div className="w-full h-11 rounded-lg bg-orange-200 flex items-center px-4">
+        <div className="w-full h-11 rounded-lg bg-orange-200 border-orange-600 border-2 flex items-center px-4">
           <input
             type="text"
             placeholder="WOODS, NAILS"
@@ -14,11 +14,11 @@ export default function SearchBarComponent({ sortValue, onSortChange }) {
       </div>
 
       {/* Sort section */}
-      <div className="mt-3 flex items-center gap-2 text-orange-200">
+      <div className="mt-3 flex items-center gap-2 text-white">
         <span className="text-sm">Sort by</span>
 
         <select
-          className="bg-orange-300 text-orange-900 rounded px-2 py-1 focus:outline-none"
+          className="bg-orange-900 text-white rounded px-3 py-2 focus:outline-none"
           value={sortValue}
           onChange={(e) => onSortChange(e.target.value)}
         >
