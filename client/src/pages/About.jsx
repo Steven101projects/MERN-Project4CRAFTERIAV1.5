@@ -37,7 +37,7 @@ export default function About() {
         </div>
 <div className="mt-10 flex flex-col items-center gap-3 text-white">
 
-  <p className="text-2xl">Creator</p>
+  <p className="text-2xl">Creator: 1O1.Projects</p>
 
   <div className="flex gap-4">
 

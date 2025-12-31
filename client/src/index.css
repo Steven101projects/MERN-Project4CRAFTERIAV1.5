@@ -19,6 +19,15 @@ body {
   font-family: 'League Spartan', sans-serif !important;
 }
 
+@keyframes floatSoft {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-float-soft {
+  animation: floatSoft 1.6s ease-in-out infinite;
+}
 
 /* .crafter {
   width: 700px;

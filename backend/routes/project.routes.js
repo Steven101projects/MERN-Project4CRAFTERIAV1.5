@@ -4,22 +4,30 @@ import {
   getProject,
   createProject,
   updateProject,
-  deleteProject
+  deleteProject,
+  addComment,
+  addRating
 } from "../controllers/project.controller.js";
 
 const router = express.Router();
 
-// read
+/* READ */
 router.get("/", getProjects);
 router.get("/:id", getProject);
 
-// create
+/* CREATE */
 router.post("/", createProject);
 
-// update
+/* UPDATE */
 router.put("/:id", updateProject);
 
-// delete
+/* DELETE */
 router.delete("/:id", deleteProject);
+
+/* COMMENTS */
+router.post("/:id/comments", addComment);
+
+/* RATINGS */
+router.post("/:id/ratings", addRating);
 
 export default router;

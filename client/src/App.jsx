@@ -12,6 +12,14 @@ import Craftbook from './pages/CraftBook'
 import LogIn from './pages/LogIn'
 import Register from './pages/Register'
 import Settings from "./pages/Settings"
+import Craftor from "./pages/Craftor"
+import Profile from "./pages/Profile"
+import Craftlist from "./pages/Craftlist"
+import CraftMedia from "./pages/CraftMedia"
+
+//Additional Pages
+import ProjectDetails from "./pages/ProjectDetails"
+import EditProjectPage from "./pages/EditProjectPage"
 
 function App() {
 
@@ -28,6 +36,15 @@ function App() {
         <Route path='/login' element={<LogIn />} />
         <Route path='/register' element={<Register />} />
         <Route path='/settings' element={<Settings />} />
+        <Route path='/craftor' element={<Craftor />}/>
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/projects/:id' element={<ProjectDetails/>} />
+        <Route path='/craftlist' element={<Craftlist />} />
+        <Route path='/craftmedia' element={<CraftMedia />} />
+        <Route
+  path="/craftor/projects/edit/:id"
+  element={<EditProjectPage />}
+/>
       </Routes>
       
       <CrafteriaFooter />
