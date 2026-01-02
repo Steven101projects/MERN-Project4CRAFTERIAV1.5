@@ -17,6 +17,9 @@ export default function CraftTable({ setCraft }) {
 
   const [materialMap, setMaterialMap] = useState(new Map());
 
+  // ✅ added loading state
+  const [loadingMaterials, setLoadingMaterials] = useState(false);
+
   useEffect(() => {
     const timer = setInterval(() => {
       setFade(false);
@@ -35,6 +38,8 @@ export default function CraftTable({ setCraft }) {
 
     async function loadMaterials() {
       try {
+        setLoadingMaterials(true);
+
         const res = await api.get("/api/materials");
         const map = new Map(
           res.data.map(m => [m.name.toUpperCase(), m])
@@ -42,6 +47,8 @@ export default function CraftTable({ setCraft }) {
         setMaterialMap(map);
       } catch {
         setError("Failed to load materials");
+      } finally {
+        setLoadingMaterials(false);
       }
     }
 
@@ -77,7 +84,6 @@ export default function CraftTable({ setCraft }) {
       return;
     }
 
-    // ✅ NAVIGATION STATE ONLY
     navigate("/craftbook", {
       state: {
         craftedMaterials: items
@@ -88,6 +94,21 @@ export default function CraftTable({ setCraft }) {
   if (open) {
     return (
       <div className="flex flex-col py-[4vh] items-center">
+
+        {/* ✅ floating loading message only */}
+        {loadingMaterials && (
+          <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+            <div
+              className="px-6 py-3 rounded-full
+                         bg-black bg-opacity-80
+                         text-white font-semibold
+                         shadow-lg animate-pulse"
+            >
+              Preparing crafting materials…
+            </div>
+          </div>
+        )}
+
         <div
           id="craftingTable"
           className="bg-gradient-to-br from-[#ffbf00] to-[#f15000]
@@ -141,9 +162,10 @@ export default function CraftTable({ setCraft }) {
             <div className="absolute w-[2.5vw] h-[0.3vw] bg-white rounded-sm" />
           </button>
 
-          <div className="bg-[#c74710] w-[34vw] h-[8vh]
-                          rounded-[3vw] flex justify-center
-                          shadow-red-900 shadow-md"
+          <div
+            className="bg-[#c74710] w-[34vw] h-[8vh]
+                       rounded-[3vw] flex justify-center
+                       shadow-red-900 shadow-md"
           >
             <input
               type="text"
@@ -204,14 +226,16 @@ export default function CraftTable({ setCraft }) {
         </button>
 
         <div className="w-[40vw] h-[14vh] mt-[4vh] flex flex-col items-center">
-          <div className="bg-[#d4480c] w-[28vw] h-[10vh]
-                          rounded-[3vw] flex justify-center
-                          shadow-red-900 shadow-lg"
+          <div
+            className="bg-[#d4480c] w-[28vw] h-[10vh]
+                       rounded-[3vw] flex justify-center
+                       shadow-red-900 shadow-lg"
           >
-            <div className="relative bottom-[1vh]
-                            bg-white w-[24vw] h-[8vh]
-                            flex items-center justify-center
-                            overflow-hidden"
+            <div
+              className="relative bottom-[1vh]
+                         bg-white w-[24vw] h-[8vh]
+                         flex items-center justify-center
+                         overflow-hidden"
             >
               <span
                 className={`
