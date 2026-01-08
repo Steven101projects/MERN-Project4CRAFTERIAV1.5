@@ -16,8 +16,6 @@ export default function CraftTable({ setCraft }) {
   const [fade, setFade] = useState(true);
 
   const [materialMap, setMaterialMap] = useState(new Map());
-
-  // ✅ added loading state
   const [loadingMaterials, setLoadingMaterials] = useState(false);
 
   useEffect(() => {
@@ -60,10 +58,16 @@ export default function CraftTable({ setCraft }) {
     setOpen(true);
   };
 
+  // ✅ validate before placing on table
   const addMaterial = () => {
     const value = text.trim().toUpperCase();
     if (!value) return;
     if (items.length >= 9) return;
+
+    if (loadingMaterials || !materialMap.has(value)) {
+      setError("Material not found");
+      return;
+    }
 
     setItems(prev => [...prev, value]);
     setText("");
@@ -75,12 +79,13 @@ export default function CraftTable({ setCraft }) {
     setError("");
   };
 
+  // ✅ final safety check before crafting
   const craft = () => {
     if (items.length === 0) return;
 
-    const invalid = items.filter(i => !materialMap.has(i));
-    if (invalid.length > 0) {
-      setError(`Invalid material: ${invalid.join(", ")}`);
+    const invalid = items.some(i => !materialMap.has(i));
+    if (invalid) {
+      setError("Material not found");
       return;
     }
 
@@ -95,7 +100,6 @@ export default function CraftTable({ setCraft }) {
     return (
       <div className="flex flex-col py-[4vh] items-center">
 
-        {/* ✅ floating loading message only */}
         {loadingMaterials && (
           <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
             <div

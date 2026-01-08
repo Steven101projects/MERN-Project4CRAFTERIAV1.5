@@ -56,3 +56,37 @@ export async function updateMaterial(req, res) {
     res.status(500).json({ message: "Failed to update material" });
   }
 }
+
+export async function addMaterial(req, res) {
+  const { name, description, type, popular } = req.body;
+
+  if (!name) {
+    return res.status(400).json({ message: "Material name is required" });
+  }
+
+  try {
+    // prevent duplicate material names
+    const existing = await Material.findOne({
+      name: name.trim()
+    });
+
+    if (existing) {
+      return res.status(409).json({ message: "Material already exists" });
+    }
+
+    const material = new Material({
+      name: name.trim(),
+      description: description || "",
+      type: type || "",
+      popular: popular || 0,
+      projects: []
+    });
+
+    await material.save();
+
+    res.status(201).json(material);
+  } catch (err) {
+    res.status(500).json({ message: "Failed to add material" });
+  }
+}
+

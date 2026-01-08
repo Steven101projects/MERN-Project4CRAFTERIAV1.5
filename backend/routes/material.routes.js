@@ -2,7 +2,8 @@ import express from "express";
 import {
   getMaterials,
   getMaterial,
-  updateMaterial
+  updateMaterial,
+  addMaterial
 } from "../controllers/material.controller.js";
 
 const router = express.Router();
@@ -15,5 +16,7 @@ router.get("/:id", getMaterial);
 
 // update material (add linked project)
 router.put("/:id", updateMaterial);
+
+router.post("/", addMaterial);
 
 export default router;
